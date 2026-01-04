@@ -1,18 +1,16 @@
+
 # wsa5000-cli
 
-A command-line interface (CLI) application for controlling ThinkRF WSA devices, built with Qt5 and C++ (for legacy compatibility).
+A command-line interface (CLI) application for controlling ThinkRF WSA devices, built with C++ and CMake for x86 architecture (legacy compatibility).
 
 ## Prerequisites
 
-- **Qt 5.12.x (x86/Win32)**
-  - Download and install from [Qt Downloads](https://download.qt.io/archive/qt/5.12/5.12.12/)
-  - Ensure you install the MSVC x86 (32-bit) version (e.g., `msvc2017` or `msvc2019`)
-- **Visual Studio 2017/2019/2022 (x86/Win32 toolchain)**
+**Visual Studio 2017/2019/2022 (x86/Win32 toolchain)**
   - Install the Desktop development with C++ workload
-- **CMake 3.18 or newer**
-- **wsaInterface.dll and wsaInterface.lib**
+**CMake 3.18 or newer**
+**wsaInterface.dll and wsaInterface.lib**
   - Provided in `rtsa/lib` (must be x86/Win32)
-- **Git Bash or compatible shell** (for running `build.sh` and `run.sh`)
+**Git Bash or compatible shell** (for running `build.sh` and `run.sh`)
 
 ## Building the Project
 
@@ -125,7 +123,7 @@ If an error occurs, an error message is printed and the program exits with a non
   ```
 - This approach works regardless of the bitness (x86/x64) of the calling application, as long as the CLI binary and its dependencies are present and compatible with the OS.
 - Ensure `wsaInterface.dll` is present in the same directory as `wsa5000-cli.exe` when running.
-- If you encounter Qt DLL errors, ensure your Qt5 x86 `bin` directory is in your `PATH`.
+
 - For command-line arguments and usage, run:
   ```sh
   ./Release/wsa5000-cli.exe --help

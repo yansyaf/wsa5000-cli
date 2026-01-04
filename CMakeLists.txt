@@ -1,4 +1,4 @@
-
+# CMake configuration for wsa5000-cli
 
 cmake_minimum_required(VERSION 3.18)
 project(wsa5000-cli LANGUAGES CXX)
@@ -14,17 +14,6 @@ if(WIN32)
 	set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 endif()
 
-
-# Set Qt5_DIR or CMAKE_PREFIX_PATH if not already set (user may override)
-set(QT5_INSTALL_PREFIX "C:/Qt/Qt5.12.12/5.12.12/msvc2017" CACHE PATH "Path to Qt5 installation")
-if(NOT Qt5_DIR)
-	set(Qt5_DIR "${QT5_INSTALL_PREFIX}/lib/cmake/Qt5" CACHE PATH "Qt5Config.cmake directory")
-endif()
-list(APPEND CMAKE_PREFIX_PATH "${QT5_INSTALL_PREFIX}")
-
-# Find Qt5 Core (for CLI, no GUI)
-find_package(Qt5 5.12.12 REQUIRED COMPONENTS Core)
-
 # Source files
 set(SOURCES
 	main.cpp
@@ -37,9 +26,6 @@ include_directories(
 
 # Add executable
 add_executable(${PROJECT_NAME} ${SOURCES})
-
-# Link Qt5::Core
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt5::Core)
 
 # Link RTSA library (Windows)
 if(WIN32)
